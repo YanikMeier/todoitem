@@ -1,0 +1,108 @@
+<!-- Grid row-->
+
+<div class="container">
+
+  <div class="row accordion-gradient-bcg d-flex justify-content-center">
+
+    <!-- Grid column -->
+    <div class="col-md-10 col-xl-6 py-5">
+
+      <h1>Tasks:</h1>
+
+      <a href="" class="btn btn-rounded indigo darken-2" data-toggle="modal" data-target="#modalRegisterForm">Create
+        Task</a>
+
+
+
+
+      <div class="scroll">
+
+        <div *ngFor="let ti of todoitem">
+          <div class="accordion md-accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
+
+            <!-- Accordion card-->
+            <div class="card">
+
+              <!-- Card header-->
+              <div class="card-header rgba-stylish-strong z-depth-1 mb-1 indigo darken-2" role="tab" id="heading1">
+                <div class="buttons">
+                  <button (click)="deleteItem(ti.id)"><i class="fas fa-trash-alt"></i></button>
+                  <button><i class="fas fa-pencil-alt"></i></button>
+                </div>
+
+                <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true"
+                  aria-controls="collapse1">
+                  <h5 class="mb-0 white-text text-uppercase font-thin">
+                    {{ti.name + ":"}} <i class="fas fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <!-- Card body-->
+              <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1"
+                data-parent="#accordionEx7">
+                <div class="card-body mb-1 rgba-grey-light white-text">
+                  <h5>Date:</h5>
+                  <p>{{ti.date}}</p>
+                  <h5>Importance:</h5>
+                  <p>{{ti.importance}}</p>
+                  <h5>Description:</h5>
+                  <p>{{ti.message}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+
+
+          </div>
+        </div>
+        <!-- Accordion card-->
+      </div>
+      <!--/.Accordion wrapper-->
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<form autocomplete="off" (submit)="onSubmit(form)">
+  <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Create new Task</h4>
+          <button type="button" class="close indigo darken-2" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+          <input [(ngModel)]="todoitemservice.formData.Name" [ngModelOptions]="{standalone: true}" type="text" id="orangeForm-name" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">Name of Task</label>
+          </div>
+          <div class="md-form mb-5">
+            <input [(ngModel)]="todoitemservice.formData.Date" [ngModelOptions]="{standalone: true}" type="date" id="orangeForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Deadline</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <input [(ngModel)]="todoitemservice.formData.Importance" [ngModelOptions]="{standalone: true}" type="text" id="orangeForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Importance</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <input [(ngModel)]="todoitemservice.formData.Message" [ngModelOptions]="{standalone: true}" type="text" id="orangeForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Description</label>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn indigo darken-2">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

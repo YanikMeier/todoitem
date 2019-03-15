@@ -1,0 +1,46 @@
+.container {
+    height: 93vh;
+
+}
+
+.scroll {
+    overflow-y: scroll;   
+}
+
+
+.card{
+    background-color: lightblue;
+}
+
+
+
+h1 {
+    width: 175px;
+    display: inline-block
+}
+
+.Taskbutton {
+    margin-top: 20px; 
+}
+
+button {
+    float: right;    
+    background-color: transparent;
+    border: none;
+    margin-right: 3px;
+    border-style: none;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    border-radius: 10px;
+    border-style: none;    
+}
+
+button:focus {outline:0;}
+
+
+button:hover {
+    background-color: lightcyan; 
+
+  }
+
+ 
